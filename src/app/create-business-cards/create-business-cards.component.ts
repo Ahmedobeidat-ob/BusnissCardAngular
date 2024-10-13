@@ -22,6 +22,7 @@ export class CreateBusinessCardsComponent {
     photo: '',
     createdAt: new Date().toISOString(), // Set this to the current date
   };
+  previewImage: string | ArrayBuffer | null = null;
 
   constructor(private businessCardService: BusinessCardService) {}
 
@@ -78,5 +79,10 @@ export class CreateBusinessCardsComponent {
       this.onFileChange({ target: { files } }); // Handle the dropped file
     }
   }
- 
+
+
+  onFileUpload(event: any) {
+    const file = event.target.files[0];
+    // Add your file processing logic here
+  }
 }

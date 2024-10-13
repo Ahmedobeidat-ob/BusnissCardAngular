@@ -56,7 +56,7 @@
         <td>{{ card.phone }}</td>
         <td>{{ card.address }}</td>
         <td>
-          <img *ngIf="card.photo" [src]="card.photo" alt="Photo" class="photo" />
+          <img *ngIf="card.photo" [src]="'data:image/png;base64,' + card.photo" alt="Photo" class="photo" />
           <span *ngIf="!card.photo">No Photo</span>
         </td>
         <td>

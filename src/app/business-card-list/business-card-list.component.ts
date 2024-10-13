@@ -54,28 +54,38 @@ export class BusinessCardListComponent implements OnInit {
 
   applyFilter() {
     const filteredData = this.originalBusinessCards.filter(card => {
-      const nameMatch = !this.filters.name ||
-        card.name.toLowerCase().includes(this.filters.name.toLowerCase());
+        const nameMatch = !this.filters.name ||
+            card.name.toLowerCase().includes(this.filters.name.toLowerCase());
 
-      const genderMatch = !this.filters.gender ||
-        card.gender.toLowerCase().includes(this.filters.gender.toLowerCase());
+        const genderMatch = !this.filters.gender ||
+            card.gender.toLowerCase().includes(this.filters.gender.toLowerCase());
 
-      // Check date of birth only if a date is provided
-      const dobMatch = !this.filters.dateOfBirth ||
-        new Date(card.dateOfBirth).toISOString().split('T')[0] === this.filters.dateOfBirth;
+        // Check date of birth only if a date is provided
+        const dobMatch = !this.filters.dateOfBirth ||
+            this.formatDate(card.dateOfBirth) === this.filters.dateOfBirth;
 
-      const emailMatch = !this.filters.email ||
-        card.email.toLowerCase().includes(this.filters.email.toLowerCase());
+        const emailMatch = !this.filters.email ||
+            card.email.toLowerCase().includes(this.filters.email.toLowerCase());
 
-      const phoneMatch = !this.filters.phone ||
-        card.phone.includes(this.filters.phone); // Assuming phone numbers are not case-sensitive
+        const phoneMatch = !this.filters.phone ||
+            card.phone.includes(this.filters.phone); // Assuming phone numbers are not case-sensitive
 
-      return nameMatch && genderMatch && dobMatch && emailMatch && phoneMatch;
+        return nameMatch && genderMatch && dobMatch && emailMatch && phoneMatch;
     });
 
-    console.log('Filtered cards:', filteredData);
-    this.businessCards = filteredData; // Update the displayed data
-  }
+    // Update the filtered data in your component's state
+    this.businessCards = filteredData;
+}
+
+// Helper method to format the date to YYYY-MM-DD
+private formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`; // Returns date in YYYY-MM-DD format
+}
+
 
 
   clearFilters() {
