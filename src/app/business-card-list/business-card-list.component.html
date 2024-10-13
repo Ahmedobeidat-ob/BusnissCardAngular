@@ -1,0 +1,68 @@
+<div class="filter-container">
+  <div class="filter-inputs">
+    <input [(ngModel)]="filters.name" placeholder="Name" />
+    <input [(ngModel)]="filters.gender" placeholder="Gender" />
+    <input [(ngModel)]="filters.dateOfBirth" placeholder="Date of Birth" type="date" />
+    <input [(ngModel)]="filters.email" placeholder="Email" />
+    <input [(ngModel)]="filters.phone" placeholder="Phone" />
+  </div>
+  <div class="button-container">
+    <button (click)="applyFilter()" class="icon-button">
+      <i class="fas fa-search"></i> Search
+    </button>
+    <button (click)="clearFilters()" class="icon-button clear-button">
+      <i class="fas fa-times"></i> Clear
+    </button>
+
+
+  </div>
+</div>
+
+<div class="container">
+  <h1>Business Cards List</h1>
+  <div class="export-button-container">
+    <button (click)="exportToCsv()" class="btn btn-export" style="margin-right: 10px;">Export to CSV</button>
+    <button (click)="exportToXml()" class="btn btn-export">Export to XML</button>
+  </div>
+
+  <!-- Create Business Card Button -->
+  <div class="create-button-container">
+    <button (click)="navigateToCreate()" class="btn btn-create">
+      <i class="fas fa-plus"></i> Create Business Card
+    </button>
+  </div>
+
+  <table class="business-card-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Date of Birth</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Photo</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let card of businessCards">
+        <td>{{ card.id }}</td>
+        <td>{{ card.name }}</td>
+        <td>{{ card.gender }}</td>
+        <td>{{ card.dateOfBirth | date:'yyyy-MM-dd' }}</td>
+        <td>{{ card.email }}</td>
+        <td>{{ card.phone }}</td>
+        <td>{{ card.address }}</td>
+        <td>
+          <img *ngIf="card.photo" [src]="card.photo" alt="Photo" class="photo" />
+          <span *ngIf="!card.photo">No Photo</span>
+        </td>
+        <td>
+          <i class="fas fa-trash-alt delete-icon" (click)="deleteCard(card)" title="Delete"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,182 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Filter Container Styles */
+.filter-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.filter-container h2 {
+  margin-top: 0;
+}
+
+/* Filter Inputs Styles */
+.filter-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-inputs input {
+  flex: 1;
+  min-width: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Button Container Styles */
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns the buttons to the right */
+  margin-top: 10px; /* Optional: Adds space above the buttons */
+}
+
+/* Button Styles */
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn-clear {
+  background-color: #dc3545;
+}
+
+.btn-clear:hover {
+  background-color: #c82333;
+}
+
+.btn-export {
+  background-color: #28a745;
+}
+
+.btn-export:hover {
+  background-color: #218838;
+}
+
+/* Export Button Container Styles */
+.export-button-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns the button to the right */
+  margin-bottom: 15px; /* Optional: Adds space below the button */
+}
+
+/* Business Card Table Styles */
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.business-card-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.business-card-table th, .business-card-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.business-card-table th {
+  background-color: #f2f2f2;
+}
+
+.business-card-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Photo Styles */
+.photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.delete-icon {
+  color: #dc3545; /* Red color for delete icon */
+  cursor: pointer;
+  font-size: 20px; /* Size of the icon */
+  transition: color 0.3s;
+}
+
+.delete-icon:hover {
+  color: #c82333; /* Darker red on hover */
+}
+
+.icon-button {
+  background-color: #007bff; /* Blue background for the search button */
+  color: white; /* White text */
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-left: 10px; /* Space between buttons */
+  cursor: pointer;
+  display: flex; /* Align icon and text */
+  align-items: center; /* Center vertically */
+  transition: background-color 0.3s;
+}
+
+.icon-button i,
+.icon-button span {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+.icon-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Styles for the Clear button */
+.clear-button {
+  background-color: red; /* Red background for clear button */
+}
+
+.clear-button:hover {
+  background-color: darkred; /* Darker red on hover */
+}
+
+
+.create-button-container {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: flex-start; /* Align to the right */
+  margin-bottom: 15px; /* Space between button and table */
+}
+
+.btn-create {
+  background-color: #28a745; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 15px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.btn-create:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+

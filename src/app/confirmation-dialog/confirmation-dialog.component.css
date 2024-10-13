@@ -1,0 +1,20 @@
+mat-dialog-title {
+  text-align: center;
+  font-weight: bold;
+  color: #1976d2; /* Change to your desired color */
+}
+
+mat-dialog-content {
+  text-align: center;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  width: 100px;
+}
