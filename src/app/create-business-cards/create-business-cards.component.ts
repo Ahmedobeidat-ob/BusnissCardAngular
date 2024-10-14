@@ -37,34 +37,43 @@ export class CreateBusinessCardsComponent {
 
     // If you want to include imported data, you can merge it here
     if (this.importedData.length > 0) {
-        // You might need to loop through importedData and handle it
-        this.importedData.forEach(importedCard => {
-            // Create a new card object for each imported card
-            const card = { ...cardToSubmit, ...importedCard };
-            this.businessCardService.addBusinessCard(card).subscribe(
-                (response) => {
-                    console.log('Imported business card added successfully:', response);
-                },
-                (error) => {
-                    console.error('Error adding imported business card:', error);
-                }
-            );
-        });
-    } else {
-        // Proceed with adding the regular newCard
-        this.businessCardService.addBusinessCard(this.newCard).subscribe(
-            (response) => {
-                console.log('Business card added successfully:', response);
-                this.resetForm(); // Reset form after successful submission
-
-            },
-            (error) => {
-                console.error('Error adding business card:', error);
-            }
+      // Loop through importedData and submit each imported card
+      this.importedData.forEach(importedCard => {
+        const card = { ...cardToSubmit, ...importedCard };
+        this.businessCardService.addBusinessCard(card).subscribe(
+          (response) => {
+            console.log('Imported business card added successfully:', response);
+            // Optionally reset form after importing all cards
+            this.resetForm();
+          },
+          (error) => {
+            console.error('Error adding imported business card:', error);
+          }
         );
+      });
+    } else {
+      // Proceed with adding the regular newCard
+      this.businessCardService.addBusinessCard(this.newCard).subscribe(
+        (response) => {
+          console.log('Business card added successfully:', response);
+          this.resetForm(); // Reset form after successful submission
+          this.clearImportPreview(); // Clear the import preview and file uploader
+        },
+        (error) => {
+          console.error('Error adding business card:', error);
+        }
+      );
     }
+  }
 
-}
+  clearImportPreview() {
+    this.importedData = []; // Clear the previewed imported data
+    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = ''; // Clear the file input field
+    }
+  }
+
 
 
   resetForm() {
@@ -76,12 +85,12 @@ export class CreateBusinessCardsComponent {
       phone: '',
       address: '',
       photo: '',
-      createdAt: new Date().toISOString(), // Set this to the current date
-
-
+      createdAt: new Date().toISOString(), // Reset createdAt to the current date
     };
-    this.fileData = [];
+    this.fileData = []; // Reset file data
+    this.clearImportPreview(); // Clear the import preview and file uploader
   }
+
 
   onFileChange(event: any) {
     const file = event.target.files[0];

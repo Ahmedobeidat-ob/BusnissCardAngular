@@ -1,139 +1,107 @@
-/* Styles for the form container */
 .container {
-  max-width: 800px; /* Limit the width of the form */
-  margin: auto; /* Center the form */
-  padding: 30px; /* Add padding around the form */
-  border: 1px solid #ddd; /* Add a light border */
-  border-radius: 8px; /* Round the corners */
-  background-color: #ffffff; /* White background color */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow for depth */
+  max-width: 800px; /* Set a maximum width for the form */
+  margin: auto; /* Center the form on the page */
 }
 
-/* Styles for form headings */
 h2 {
-  margin-bottom: 20px; /* Space below the heading */
-  font-size: 1.8rem; /* Increase font size */
-  color: #28a745; /* Primary color for the heading */
-  text-align: center; /* Center the heading text */
+  font-family: 'Arial', sans-serif; /* Choose a font for the header */
+  color: #007bff; /* Change header color */
 }
 
-/* Styles for labels */
-label {
-  font-weight: 600; /* Make labels semi-bold */
-  display: block; /* Ensure labels are on their own line */
-  margin-bottom: 5px; /* Space between label and input */
-  color: #333; /* Darker color for better readability */
-}
-
-/* Styles for input fields */
-input.form-control,
-select.form-select,
-textarea.form-control {
-  margin-bottom: 15px; /* Add space below each field */
-  padding: 10px; /* Add padding inside inputs */
-  border: 1px solid #ced4da; /* Light border color */
-  border-radius: 4px; /* Rounded corners */
-  transition: border-color 0.3s; /* Smooth transition for border color */
-}
-
-input.form-control:focus,
-select.form-select:focus,
-textarea.form-control:focus {
-  border-color: #007bff; /* Change border color on focus */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
-}
-
-/* Styles for the invalid feedback */
-.invalid-feedback {
-  display: block; /* Ensure the feedback is visible */
-  font-size: 0.9em; /* Slightly smaller text */
-  color: #dc3545; /* Bootstrap's danger color */
-}
-
-/* Styles for the button */
-.btn {
-  margin-top: 20px; /* Space above the button */
-  padding: 10px 20px; /* Add padding */
-  font-size: 1rem; /* Increase font size */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners */
-  background-color: #28a745; /* Primary color for button */
-  color: white; /* White text */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s, transform 0.1s; /* Smooth transitions */
-}
-
-.btn:hover {
-  background-color: #28a745; /* Darker blue on hover */
-  transform: translateY(-2px); /* Lift effect on hover */
-}
-
-/* Styles for the photo preview */
-img {
-  max-width: 100%; /* Make sure the image fits within the container */
-  height: auto; /* Maintain aspect ratio */
-  margin-top: 10px; /* Space above the image */
-  border: 1px solid #ddd; /* Light border around the preview */
-  border-radius: 4px; /* Rounded corners */
-}
-
-/* Add media queries for responsiveness */
-@media (max-width: 767.98px) {
-  .row {
-    flex-direction: column; /* Stack fields vertically on small screens */
-  }
-}
-.import-preview {
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+.form-label {
+  font-weight: bold; /* Make form labels bold */
 }
 
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping of cards */
+  gap: 15px; /* Space between cards */
 }
 
 .business-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  width: 200px; /* Set a fixed width for consistency */
-  padding: 15px;
-  transition: transform 0.2s;
-}
-
-.business-card:hover {
-  transform: scale(1.02); /* Slight zoom effect on hover */
+  border: 1px solid #ccc; /* Add a border to each card */
+  border-radius: 5px; /* Round the corners */
+  padding: 10px; /* Add padding inside the card */
+  background-color: #f9f9f9; /* Light background color */
+  width: calc(33.33% - 10px); /* Adjust card width for three in a row */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+  overflow: hidden; /* Prevent overflow */
 }
 
 .card-photo {
-  width: 100%; /* Make the photo responsive */
-  height: auto;
-  border-radius: 4px;
-  margin-bottom: 10px;
+  width: 100%; /* Make photo responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Round the corners of the photo */
 }
 
 .card-details {
-  text-align: left;
+  margin-top: 10px; /* Space between photo and details */
 }
 
-.card-details h4 {
-  font-size: 18px;
-  margin: 10px 0;
+.btn {
+  margin-top: 10px; /* Space between buttons and form elements */
 }
 
-.card-details p {
-  margin: 5px 0;
-  font-size: 14px;
-  line-height: 1.4;
+.input-group {
+  margin-bottom: 10px; /* Add space between input groups */
 }
 
-.card-details strong {
-  font-weight: bold;
-  color: #333;
+textarea {
+  resize: none; /* Disable textarea resizing */
+}
+
+.invalid-feedback {
+  font-size: 0.9em; /* Adjust feedback font size */
+  color: red; /* Change feedback color to red */
+}
+.select-gender {
+  appearance: none; /* Remove default styling */
+  background-color: #ffffff; /* Set background color */
+  border: 1px solid #ced4da; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px; /* Padding inside the select */
+  width: 100%; /* Full width */
+  transition: border-color 0.3s; /* Smooth transition for border */
+}
+
+/* Style for the select on focus */
+.select-gender:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
+}
+
+/* Arrow icon for the select */
+.select-gender::after {
+  content: ''; /* Use content to create a pseudo-element */
+  position: absolute; /* Position it absolutely */
+  right: 15px; /* Adjust position */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for center alignment */
+  border: solid #007bff; /* Arrow color */
+  border-width: 0 2px 2px 0; /* Arrow shape */
+  display: inline-block; /* Ensure it behaves like a block */
+  padding: 3px; /* Add space around the arrow */
+  transform: rotate(45deg); /* Rotate to form arrow */
+}
+
+/* Remove the default dropdown arrow */
+.select-gender {
+  background-image: none; /* Remove default arrow */
+  padding-right: 30px; /* Space for custom arrow */
+}
+.button-container {
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Space buttons between left and right */
+  margin-top: 20px; /* Space above the buttons */
+}
+.btn-create {
+  background-color: #28a745; /* Set background color */
+  color: white; /* Set text color */
+  border: none; /* Remove border */
+}
+
+.btn-create:hover {
+  background-color: #218838; /* Darker shade for hover effect */
+  transform: translateY(-2px); /* Lift effect on hover */
 }
