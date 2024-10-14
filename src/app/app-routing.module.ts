@@ -4,6 +4,7 @@ import { BusinessCardListComponent } from './business-card-list/business-card-li
 import { CreateBusinessCardsComponent } from './create-business-cards/create-business-cards.component';
 
 const routes: Routes = [
+
   { path: 'create-business-card', component: CreateBusinessCardsComponent },
   // other routes...
 ];
