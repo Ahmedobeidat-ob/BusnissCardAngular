@@ -3,7 +3,7 @@ import { BusinessCardService } from '../Service/business-card-service.service';
 import { BusinessCardsDTo } from '../Models/BusinessCardsDTo';
 import { FormsModule } from '@angular/forms'; // Keep only what you need
 import { CommonModule } from '@angular/common';
-
+import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-create-business-cards',
   standalone: true,
@@ -30,7 +30,11 @@ export class CreateBusinessCardsComponent {
   fileData: any[] = []; // Store the imported data for preview as table
   importedData: BusinessCardsDTo[] = []; // Store the preview of imported business cards
 
-  constructor(private businessCardService: BusinessCardService) {}
+  constructor(private businessCardService: BusinessCardService,private router: Router) {}
+  navigateToList() {
+    console.log("Navigating to list page");
+    this.router.navigate(['/business-card-list']);
+  }
 
   onSubmit() {
     const cardToSubmit = { ...this.newCard };
