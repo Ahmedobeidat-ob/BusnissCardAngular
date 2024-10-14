@@ -56,12 +56,14 @@ export class CreateBusinessCardsComponent {
             (response) => {
                 console.log('Business card added successfully:', response);
                 this.resetForm(); // Reset form after successful submission
+
             },
             (error) => {
                 console.error('Error adding business card:', error);
             }
         );
     }
+
 }
 
 
@@ -205,15 +207,17 @@ export class CreateBusinessCardsComponent {
 
   onDragOver(event: DragEvent) {
     event.preventDefault(); // Prevent default to allow drop
-  }
+}
 
-  onFileDrop(event: DragEvent) {
-    event.preventDefault(); // Prevent default behavior
-    const files = event.dataTransfer?.files;
-    if (files && files.length > 0) {
-      this.onFileChange({ target: { files } }); // Handle the dropped file
-    }
+
+onFileDrop(event: DragEvent) {
+  event.preventDefault(); // Prevent default behavior
+  const files = event.dataTransfer?.files;
+  if (files && files.length > 0) {
+      this.onImportFileChange({ target: { files } }); // Handle the dropped file
   }
+}
+
 
 
   onFileUpload(event: any) {

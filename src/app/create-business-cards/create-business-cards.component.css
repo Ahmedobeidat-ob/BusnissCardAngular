@@ -83,3 +83,57 @@ img {
     flex-direction: column; /* Stack fields vertically on small screens */
   }
 }
+.import-preview {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.business-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 200px; /* Set a fixed width for consistency */
+  padding: 15px;
+  transition: transform 0.2s;
+}
+
+.business-card:hover {
+  transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+.card-photo {
+  width: 100%; /* Make the photo responsive */
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.card-details {
+  text-align: left;
+}
+
+.card-details h4 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.card-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.card-details strong {
+  font-weight: bold;
+  color: #333;
+}
