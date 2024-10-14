@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './create-business-cards.component.html',
   styleUrls: ['./create-business-cards.component.css']
 })
+
 export class CreateBusinessCardsComponent {
   newCard: BusinessCardsDTo = {
     name: '',
@@ -21,7 +22,10 @@ export class CreateBusinessCardsComponent {
     address: '',
     photo: '',
     createdAt: new Date().toISOString(), // Set this to the current date
+
   };
+
+
   previewImage: string | ArrayBuffer | null = null;
   fileData: any[] = []; // Store the imported data for preview as table
   importedData: BusinessCardsDTo[] = []; // Store the preview of imported business cards
@@ -29,17 +33,37 @@ export class CreateBusinessCardsComponent {
   constructor(private businessCardService: BusinessCardService) {}
 
   onSubmit() {
-    this.businessCardService.addBusinessCard(this.newCard).subscribe(
-      (response) => {
-        console.log('Business card added successfully:', response);
-        this.resetForm(); // Reset form after successful submission
+    const cardToSubmit = { ...this.newCard };
 
-      },
-      (error) => {
-        console.error('Error adding business card:', error);
-      }
-    );
-  }
+    // If you want to include imported data, you can merge it here
+    if (this.importedData.length > 0) {
+        // You might need to loop through importedData and handle it
+        this.importedData.forEach(importedCard => {
+            // Create a new card object for each imported card
+            const card = { ...cardToSubmit, ...importedCard };
+            this.businessCardService.addBusinessCard(card).subscribe(
+                (response) => {
+                    console.log('Imported business card added successfully:', response);
+                },
+                (error) => {
+                    console.error('Error adding imported business card:', error);
+                }
+            );
+        });
+    } else {
+        // Proceed with adding the regular newCard
+        this.businessCardService.addBusinessCard(this.newCard).subscribe(
+            (response) => {
+                console.log('Business card added successfully:', response);
+                this.resetForm(); // Reset form after successful submission
+            },
+            (error) => {
+                console.error('Error adding business card:', error);
+            }
+        );
+    }
+}
+
 
   resetForm() {
     this.newCard = {
@@ -115,25 +139,42 @@ export class CreateBusinessCardsComponent {
         createdat: card.getElementsByTagName('CreatedAt')[0].textContent,
       });
     }
-    return cards; // Return parsed data
+    console.log('Parsed XML data:', cards); // Log parsed data
+    return cards;
   }
 
-  parseCsv(csv: string): any[] {
-    const rows = csv.split('\n').filter(row => row.trim() !== ''); // Filter out any empty rows
-    const headers = rows[0].split(',').map(header => header.trim()); // Trim whitespace from headers
+
+  parseCsv(csv: string): BusinessCardsDTo[] {
+    const rows = csv.split('\n').filter(row => row.trim() !== ''); // Filter out empty rows
+    console.log('CSV rows:', rows); // Log rows for debugging
+
+    if (rows.length === 0) {
+        console.error('CSV is empty');
+        return [];
+    }
+
+    const headers = rows[0].split(',').map(header => header.trim());
+    console.log('CSV headers:', headers); // Log headers for debugging
 
     return rows.slice(1).map(row => {
-      const values = row.split(',').map(value => value.trim()); // Trim whitespace from values
-      const obj: any = {};
+        const values = row.split(',').map(value => value.trim());
+        const obj: Record<string, any> = {}; // Use Record<string, any> for dynamic keys
 
-      headers.forEach((header, index) => {
-        // Check if the value exists before assigning it to avoid undefined values
-        obj[header] = values[index] !== undefined ? values[index] : null; // Assign null if the value is undefined
-      });
+        headers.forEach((header, index) => {
+            if (index < values.length) {
+                obj[header] = values[index] === '' ? null : values[index]; // Treat empty strings as null
+            } else {
+                console.warn(`Missing value for header '${header}' in row: ${row}`);
+                obj[header] = null; // Set to null if value is missing
+            }
+        });
 
-      return obj;
+        console.log('Parsed CSV row:', obj); // Log each parsed row
+        return obj as BusinessCardsDTo; // Cast to BusinessCardsDTo type
     });
-  }
+}
+
+
 
   clearFileInput(fileInput: any) {
     fileInput.value = ''; // Clear the file input value
