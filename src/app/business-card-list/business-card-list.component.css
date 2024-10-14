@@ -1,14 +1,14 @@
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #ffffff; /* White background for the entire application */
   margin: 0;
   padding: 20px;
 }
 
 /* Filter Container Styles */
 .filter-container {
-  background-color: #fff;
+  background-color: #ffffff; /* White */
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
@@ -28,9 +28,11 @@ body {
   margin-bottom: 15px;
 }
 
-.filter-inputs input {
+.filter-inputs input,
+.filter-inputs select { /* Ensure both input and select fields have the same width */
   flex: 1;
   min-width: 150px;
+  max-width: 250px; /* Set a maximum width for consistency */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -84,7 +86,7 @@ body {
 
 /* Business Card Table Styles */
 .container {
-  background-color: #fff;
+  background-color: #ffffff; /* White */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -95,18 +97,19 @@ body {
   border-collapse: collapse;
 }
 
-.business-card-table th, .business-card-table td {
+.business-card-table th,
+.business-card-table td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
 .business-card-table th {
-  background-color: #f2f2f2;
+  background-color: #f2f2f2; /* Keep header light gray for contrast */
 }
 
 .business-card-table tr:hover {
-  background-color: #f1f1f1;
+  background-color: #f1f1f1; /* Keep hover effect light gray for contrast */
 }
 
 /* Photo Styles */
@@ -159,7 +162,6 @@ body {
   background-color: darkred; /* Darker red on hover */
 }
 
-
 .create-button-container {
   display: flex; /* Use flexbox for alignment */
   justify-content: flex-start; /* Align to the right */
@@ -181,18 +183,16 @@ body {
 }
 
 /* styles.css or your component's CSS file */
-/* styles.css or your component's CSS file */
 .list-page {
-  background-color: #e0f7fa; /* Pale Blue */
+  background-color: #ffffff; /* White */
   min-height: 100vh; /* Ensure the background covers the full height */
   padding: 20px; /* Optional padding */
   color: #333; /* Optional: Change text color for better contrast */
 }
 
-/* styles.css or your component's CSS file */
-/* styles.css or your component's CSS file */
+/* Filter Section Styles */
 .filter-section {
-  background-color: #e0f7fa; /* Pale Blue */
+  background-color: #ffffff; /* White */
   min-height: 20vh; /* Ensure the background covers the full height */
   padding: 5px; /* Optional padding */
   color: #333; /* Change text color for better contrast */
@@ -201,5 +201,40 @@ body {
   margin-bottom: 5px; /* Space below the filter section */
 }
 
+/* Gender Select Styles */
+.select-gender {
+  appearance: none; /* Remove default styling */
+  background-color: #ffffff; /* Set background color to white */
+  border: 1px solid #ced4da; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px; /* Padding inside the select */
+  width: 100%; /* Full width */
+  transition: border-color 0.3s; /* Smooth transition for border */
+}
 
+/* Style for the select on focus */
+.select-gender:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
+}
 
+/* Arrow icon for the select */
+.select-gender::after {
+  content: ''; /* Use content to create a pseudo-element */
+  position: absolute; /* Position it absolutely */
+  right: 15px; /* Adjust position */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for center alignment */
+  border: solid #007bff; /* Arrow color */
+  border-width: 0 2px 2px 0; /* Arrow shape */
+  display: inline-block; /* Ensure it behaves like a block */
+  padding: 3px; /* Add space around the arrow */
+  transform: rotate(45deg); /* Rotate to form arrow */
+}
+
+/* Remove the default dropdown arrow */
+.select-gender {
+  background-image: none; /* Remove default arrow */
+  padding-right: 30px; /* Space for custom arrow */
+}
