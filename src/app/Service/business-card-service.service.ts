@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { BusinessCardsDTo } from '../Models/BusinessCardsDTo';
 
 @Injectable({
@@ -46,6 +46,31 @@ exportToCsv(): Observable<Blob> {
 
 exportToXml(): Observable<Blob> {
   return this.http.get(`${this.apiUrl}/export/xml`, { responseType: 'blob' });
+}
+
+importXml(file: File): Observable<any> {
+  const formData: FormData = new FormData();
+  formData.append('file', file, file.name);
+
+  return this.http.post(`${this.apiUrl}/import/xml`, formData).pipe(
+    catchError(this.handleError)
+  ); // Return Observable
+}
+
+// Import CSV file
+importCsv(file: File): Observable<any> {
+  const formData: FormData = new FormData();
+  formData.append('file', file, file.name);
+
+  return this.http.post(`${this.apiUrl}/import/csv`, formData).pipe(
+    catchError(this.handleError)
+  ); // Return Observable
+}
+
+// Error handling
+private handleError(error: HttpErrorResponse): Observable<never> {
+  console.error('An error occurred:', error.error.message);
+  return throwError(() => new Error('Something went wrong; please try again later.'));
 }
   // Additional methods for add, update, etc., can be added here
 }

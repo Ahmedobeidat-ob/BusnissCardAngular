@@ -3,3 +3,26 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Global background for the application */
+body {
+  background-color: #f0f4f8; /* Light background color */
+  font-family: 'Arial', sans-serif; /* Set a global font */
+}
+
+/* Main container to give some padding */
+.container {
+  padding: 20px; /* Add padding around the content */
+}
+
+/* Example background for specific pages */
+.page-home {
+  background-image: url('Assets/DALL·E\ 2024-10-14\ 01.30.43\ -\ A\ calming\ abstract\ background\ featuring\ soft\,\ flowing\ shapes\ and\ gentle\ colors\ like\ light\ blues\,\ greens\,\ and\ subtle\ pinks.\ The\ design\ should\ evoke\ a\ s.webp'); /* Example background image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+}
+
+.page-contact {
+  background-color: #e0f7fa; /* Different background color */
+}
+
+/* Add more classes as needed for different pages */

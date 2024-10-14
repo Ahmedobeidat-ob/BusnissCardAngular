@@ -52,15 +52,56 @@
   </div>
 
   <div class="mb-3">
-      <label for="photo" class="form-label">Upload Photo:</label>
-      <input type="file" id="photo" class="form-control" (change)="onFileChange($event)" accept="image/*" />
-      <small class="form-text text-muted">Please upload a photo.</small>
+    <label for="photo" class="form-label">Upload Photo:</label>
+    <input type="file" id="photo" class="form-control" (change)="onFileChange($event)" accept="image/*" />
+    <small class="form-text text-muted">Please upload a photo.</small>
 
-      <!-- Preview the uploaded image -->
-      <div *ngIf="newCard.photo">
-          <img [src]="'data:image/png;base64,' + newCard.photo" alt="Photo Preview" style="max-width: 100%; margin-top: 10px;" />
-      </div>
-  </div>
+    <!-- Preview the uploaded image -->
+    <div *ngIf="newCard.photo">
+        <img [src]="'data:image/png;base64,' + newCard.photo" alt="Photo Preview" style="max-width: 100%; margin-top: 10px;" />
+    </div>
+</div>
+<div class="mb-3" (dragover)="onDragOver($event)" (drop)="onFileDrop($event)">
+  <label for="fileInput" class="form-label">Upload XML/CSV/QR Code:</label>
+  <input type="file" id="fileInput" class="form-control" (change)="onImportFileChange($event)" accept=".xml,.csv,image/*" />
+  <small class="form-text text-muted">Drag and drop or select a file (XML, CSV, or QR code).</small>
+</div>
+
+<div *ngIf="fileData.length > 0" class="mb-3">
+  <label for="filePreview" class="form-label">File Preview:</label>
+  <pre id="filePreview" style="max-height: 200px; overflow: auto; background-color: #f8f9fa; padding: 10px; border: 1px solid #ddd;">
+    {{ fileData | json }} <!-- Using json pipe for better formatting -->
+  </pre>
+</div>
+
+<!-- Preview Imported Business Cards -->
+<div *ngIf="importedData.length > 0" class="mb-3">
+  <h3>Preview Imported Data</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Date of Birth</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let card of importedData">
+        <td>{{ card.name }}</td>
+        <td>{{ card.gender }}</td>
+        <td>{{ card.dateOfBirth | date:'yyyy-MM-dd' }}</td> <!-- Format date -->
+        <td>{{ card.email }}</td>
+        <td>{{ card.phone }}</td>
+        <td>{{ card.address }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
 
   <button type="submit" class="btn btn-primary">Create Business Card</button>
 

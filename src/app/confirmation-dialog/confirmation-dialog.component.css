@@ -1,20 +1,47 @@
+/* Style for the dialog title */
 mat-dialog-title {
   text-align: center;
   font-weight: bold;
-  color: #1976d2; /* Change to your desired color */
+  color: #007bff; /* Use a primary color from your page */
 }
 
+/* Style for dialog content */
 mat-dialog-content {
   text-align: center;
   font-size: 16px;
   margin: 10px 0;
+  color: #333; /* Darker text for readability */
 }
 
+/* Style for dialog actions */
 mat-dialog-actions {
   display: flex;
   justify-content: space-around;
+  margin-top: 20px; /* Added space above buttons */
 }
 
-button {
-  width: 100px;
+/* General button styles */
+.dialog-button {
+  width: 100px; /* Set width for all buttons */
+  border-radius: 4px; /* Rounded corners for consistency */
+}
+
+/* Cancel button styles */
+.cancel-button {
+  background-color: #f44336; /* Bootstrap danger color */
+  color: white; /* White text for contrast */
+}
+
+.cancel-button:hover {
+  background-color: #c62828; /* Darker red on hover */
+}
+
+/* Confirm button styles */
+.confirm-button {
+  background-color: #28a745; /* Green color for confirm */
+  color: white; /* White text for contrast */
+}
+
+.confirm-button:hover {
+  background-color: #218838; /* Darker green on hover */
 }

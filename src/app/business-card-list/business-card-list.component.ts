@@ -58,7 +58,7 @@ export class BusinessCardListComponent implements OnInit {
             card.name.toLowerCase().includes(this.filters.name.toLowerCase());
 
         const genderMatch = !this.filters.gender ||
-            card.gender.toLowerCase().includes(this.filters.gender.toLowerCase());
+            card.gender.toLowerCase()===this.filters.gender.toLowerCase();
 
         // Check date of birth only if a date is provided
         const dobMatch = !this.filters.dateOfBirth ||

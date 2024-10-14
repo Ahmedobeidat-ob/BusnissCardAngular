@@ -1,11 +1,35 @@
-<div class="filter-container">
+<div class="filter-container filter-section ">
   <div class="filter-inputs">
-    <input [(ngModel)]="filters.name" placeholder="Name" />
-    <input [(ngModel)]="filters.gender" placeholder="Gender" />
-    <input [(ngModel)]="filters.dateOfBirth" placeholder="Date of Birth" type="date" />
-    <input [(ngModel)]="filters.email" placeholder="Email" />
-    <input [(ngModel)]="filters.phone" placeholder="Phone" />
+    <div class="mb-3">
+      <label for="filterName" class="form-label">Name:</label>
+      <input [(ngModel)]="filters.name" id="filterName" placeholder="Enter Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="filterGender" class="form-label">Gender:</label>
+      <select [(ngModel)]="filters.gender" id="filterGender" class="form-select">
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="filterDob" class="form-label">Date of Birth:</label>
+      <input [(ngModel)]="filters.dateOfBirth" id="filterDob" type="date" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="filterEmail" class="form-label">Email:</label>
+      <input [(ngModel)]="filters.email" id="filterEmail" placeholder="Enter Email" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="filterPhone" class="form-label">Phone:</label>
+      <input [(ngModel)]="filters.phone" id="filterPhone" placeholder="Enter Phone" class="form-control" />
+    </div>
   </div>
+
   <div class="button-container">
     <button (click)="applyFilter()" class="icon-button">
       <i class="fas fa-search"></i> Search
@@ -13,12 +37,11 @@
     <button (click)="clearFilters()" class="icon-button clear-button">
       <i class="fas fa-times"></i> Clear
     </button>
-
-
   </div>
 </div>
 
-<div class="container">
+
+<div class="list-page">
   <h1>Business Cards List</h1>
   <div class="export-button-container">
     <button (click)="exportToCsv()" class="btn btn-export" style="margin-right: 10px;">Export to CSV</button>

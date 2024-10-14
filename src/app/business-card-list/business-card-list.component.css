@@ -129,7 +129,7 @@ body {
 }
 
 .icon-button {
-  background-color: #007bff; /* Blue background for the search button */
+  background-color: #218838; /* Blue background for the search button */
   color: white; /* White text */
   border: none;
   border-radius: 4px;
@@ -147,7 +147,7 @@ body {
 }
 
 .icon-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #218838; /* Darker blue on hover */
 }
 
 /* Styles for the Clear button */
@@ -179,4 +179,27 @@ body {
 .btn-create:hover {
   background-color: #218838; /* Darker green on hover */
 }
+
+/* styles.css or your component's CSS file */
+/* styles.css or your component's CSS file */
+.list-page {
+  background-color: #e0f7fa; /* Pale Blue */
+  min-height: 100vh; /* Ensure the background covers the full height */
+  padding: 20px; /* Optional padding */
+  color: #333; /* Optional: Change text color for better contrast */
+}
+
+/* styles.css or your component's CSS file */
+/* styles.css or your component's CSS file */
+.filter-section {
+  background-color: #e0f7fa; /* Pale Blue */
+  min-height: 20vh; /* Ensure the background covers the full height */
+  padding: 5px; /* Optional padding */
+  color: #333; /* Change text color for better contrast */
+  border-radius: 8px; /* Optional: round the corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+  margin-bottom: 5px; /* Space below the filter section */
+}
+
+
 
