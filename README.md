@@ -1,3 +1,30 @@
+# Business Card Management Application
+
+This is a frontend Angular application for managing business cards. The application allows users to add new business cards through a form, upload files for import, display previews before submission, and list and filter stored business cards.
+
+## Features
+
+### 1. Add New Business Card
+- A form is provided for users to input their business card information.
+- Supports drag-and-drop or file upload options for XML, CSV imports.
+- Displays a preview of the business card before submitting the data.
+
+### 2. List Business Cards
+- A page lists all stored business cards with the ability to:
+  - Delete a business card.
+  - Export a business card in different formats.
+  
+### 3. Optional Filtering
+- Filtering options are available to refine the displayed list of business cards based on various criteria (e.g., name, email, phone).
+
+### 4. File Imports (XML/CSV)
+- Users can import business card data through XML or CSV files.
+- **File Handling in Backend**: The backend parses XML and CSV files using C#.
+- **Preview Before Submitting**: Imported data is temporarily stored in the frontend and displayed for user review before the final submission.
+
+
+
+
 # BusinessCardAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
