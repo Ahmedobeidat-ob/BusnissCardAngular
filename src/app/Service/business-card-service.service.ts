@@ -10,7 +10,7 @@ export class BusinessCardService {
   deleteBusinessCard(id: any) {
     throw new Error('Method not implemented.');
   }
-  private apiUrl = 'https://localhost:7156/api/BusinessCards'; // Your actual API URL
+  private apiUrl = 'https://localhost:7156/api/BusinessCards'; // actual API URL
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +23,7 @@ export class BusinessCardService {
   deleteCard(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
-// Add a method for the filter API
+//  method for the filter API
 filterBusinessCards(filters: any): Observable<any[]> {
   const params = new HttpParams()
     .set('name', filters.name)
