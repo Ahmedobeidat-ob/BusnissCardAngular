@@ -238,3 +238,41 @@ body {
   background-image: none; /* Remove default arrow */
   padding-right: 30px; /* Space for custom arrow */
 }
+
+
+.list-page {
+  padding: 20px;
+}
+
+.items-per-page {
+  margin-right: 20px;
+}
+
+.items-per-page select {
+  min-width: 70px;
+  padding: 0.375rem 0.75rem;
+}
+
+.items-per-page label {
+  margin-right: 10px;
+}
+
+.business-card-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.business-card-table img.photo {
+  width: 40px;
+  height: auto;
+}
+
+.thead-dark {
+  background-color: #343a40;
+  color: white;
+}
+
+.pagination-controls-row {
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+}
