@@ -6,11 +6,12 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { routes } from '../app.routes';
 import { Router, RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination'; // Import NgxPaginationModule
 
 @Component({
   selector: 'app-business-card-list',
   standalone: true,
-  imports: [CommonModule,FormsModule,RouterModule], // Ensure CommonModule is included here
+  imports: [CommonModule,FormsModule,RouterModule,NgxPaginationModule], // Ensure CommonModule is included here
   templateUrl: './business-card-list.component.html',
   styleUrls: ['./business-card-list.component.css']
 })
@@ -24,6 +25,10 @@ export class BusinessCardListComponent implements OnInit {
     email: '',
     phone: ''
   };
+  currentPage = 1;  // Initialize current page
+  itemsPerPage = 5; // Set how many items per page
+  pageSizes = [5, 10, 20, 50];
+
   constructor(
     private businessCardService: BusinessCardService,
     public dialog: MatDialog,
@@ -51,6 +56,10 @@ export class BusinessCardListComponent implements OnInit {
     );
   }
 
+  updateItemsPerPage(event: any) {
+    this.itemsPerPage = event.target.value; // Update items per page
+    this.currentPage = 1; // Reset to first page after changing page size
+  }
 
   applyFilter() {
     const filteredData = this.originalBusinessCards.filter(card => {
@@ -98,6 +107,8 @@ private formatDate(dateString: string): string {
     };
     // Restore the original data
     this.businessCards = [...this.originalBusinessCards];
+
+
   }
 
 
