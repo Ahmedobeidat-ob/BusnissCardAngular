@@ -104,7 +104,7 @@ private formatDate(dateString: string): string {
   deleteCard(card: any) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {
-        message: 'Are you sure you want to delete this business card?'
+        message: 'Are you sure you want to delete this card?'
       }
     });
 
