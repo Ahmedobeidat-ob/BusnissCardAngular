@@ -62,6 +62,9 @@ export class BusinessCardListComponent implements OnInit {
   }
 
   applyFilter() {
+
+    this.currentPage = 1;
+
     const filteredData = this.originalBusinessCards.filter(card => {
         const nameMatch = !this.filters.name ||
             card.name.toLowerCase().includes(this.filters.name.toLowerCase());
